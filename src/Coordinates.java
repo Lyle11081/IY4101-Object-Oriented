@@ -31,5 +31,7 @@ public class Coordinates {
         }
     }
     // Display Coordinate
-    public String Display() {return String.format("(%d,%d)", x, y);}
+    public String Display() {
+        return String.format("(%d,%d)", x, y);
+    }
 }
