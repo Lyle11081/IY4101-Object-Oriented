@@ -1,5 +1,5 @@
 public class Coordinates {
-    //
+    //properties
     private int x;
     private int y;
     public Coordinates(int x, int y) {
@@ -19,15 +19,14 @@ public class Coordinates {
         this.x += dx;
         this.y += dy;
     }
-    // Define valuables which positive or negative
+    // Make it Bigger or smaller
     public void scale(int factor, boolean sign){
-        if(sign == true){
+        if (sign){
             this.x *= factor;
             this.y *= factor;
-        }
-        else if(sign == false) {
-            this.x *= -factor;
-            this.y *= -factor;
+        } else{
+            this.x /= factor;
+            this.y /= factor;
         }
     }
     // Display Coordinate

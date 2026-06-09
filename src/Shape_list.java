@@ -1,2 +1,2 @@
-public class Shape_list {
+public class Shape_list extends Shape{
 }

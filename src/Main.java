@@ -2,5 +2,4 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public static void main(String[] args) {
     System.out.println("----- Program Start! ----- ");
-    Scanner sc = new Scanner(System.in);
 }
