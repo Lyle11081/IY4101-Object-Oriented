@@ -1,3 +1,3 @@
-public class Square extends Shape,Rectangle {
+public class Square extends Shape{
     
 }
