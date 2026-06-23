@@ -1,4 +1,5 @@
 public class Circle extends Shape{
+    //properties
     private double radius;
     // Constructor
     public Circle(Coordinates coord, double radius) {
@@ -9,18 +10,20 @@ public class Circle extends Shape{
     public void scale(int factor, boolean sign) {
         if (sign) {
             this.radius *= factor;
-        } else {
+        }
+        else {
             this.radius /= factor;
         }
-    }
-    @Override
-    public double getArea() {
-        return Math.PI * radius * radius;
     }
 
     @Override
     public double getPerimeter() {
         return 2 * Math.PI * radius;
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
     }
 
     @Override
