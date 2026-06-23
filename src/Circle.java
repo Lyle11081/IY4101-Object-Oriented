@@ -27,5 +27,6 @@ public class Circle extends Shape{
     }
 
     @Override
-    public String Display() {return "Circle at " + position.Display() + ", Radius: " + radius;}
+    public String Display() {return "Circle at " + position.Display() + ", Radius: \n"
+            + radius + "Perimeter: \n   " + getPerimeter() + " Area: " + getArea();}
     }

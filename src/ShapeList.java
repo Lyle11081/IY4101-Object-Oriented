@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-public class Shape_list{
+public class ShapeList{
     private ArrayList<Shape> listOfShapes;
-    public Shape_list(ArrayList<Shape> listOfShapes) {
+    public ShapeList(ArrayList<Shape> listOfShapes) {
         listOfShapes = new ArrayList<>();
     }
     public void addShape(Shape s) {

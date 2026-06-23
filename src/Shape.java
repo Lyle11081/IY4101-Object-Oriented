@@ -21,8 +21,7 @@ public abstract class Shape {
     }
     // Translate the shape
     public void translate(int dx, int dy) {
-        this.position.setX(this.position.getX() + dx);
-        this.position.setY(this.position.getY() + dy);
+        this.position.translate(dx, dy);
     }
     // Abstract methods (must be implemented by sub-classes)
     public abstract void scale(int factor, boolean sign);

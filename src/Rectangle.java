@@ -4,7 +4,7 @@ public class Rectangle extends Shape{
     private double width;
     //Constructor
     public Rectangle(Coordinates coord,double length, double width){
-        super(2, coord);// Rectangle has 2 sides
+        super(4, coord);// Rectangle has 2 sides
         this.length = length;
         this.width = width;
     }
@@ -21,7 +21,7 @@ public class Rectangle extends Shape{
     }
     @Override
     public double getPerimeter() {
-        return  width + length;
+        return  (width*2) + (length*2);
     }
 
     @Override
@@ -29,5 +29,6 @@ public class Rectangle extends Shape{
 
     @Override
     public String Display() {
-        return "Rectangle at " + position.Display() + ", width: " + width + ", lenght: " + length;}
+        return "Rectangle at " + position.Display() + ", width: \n" + width + ", length: \n" + length
+              + "Perimeter: \n" + getPerimeter() + " Area: " + getArea()  ;}
 }

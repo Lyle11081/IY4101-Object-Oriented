@@ -1,27 +1,28 @@
 public class Square extends Shape{
     //properties
-    private double length;
+    private double side;
     //Constructor
-    public Square(Coordinates coord, double width){
-        super(2, coord);// Square has 2 sides with same length
-        this.length = length;
+    public Square(Coordinates coord, double side){
+        super(4, coord);// Square has 2 sides with same length
+        this.side = side;
     }
     @Override
     public void scale(int factor, boolean sign) {
         if (sign) {
-            this.length *= factor;
+            this.side *= factor;
         }
         else {
-            this.length /= factor;
+            this.side /= factor;
         }
     }
     @Override
-    public double getPerimeter() {return  length * 4;}
+    public double getPerimeter() {return  side * 4;}
 
     @Override
-    public double getArea() {return length * length;}
+    public double getArea() {return side * side;}
 
     @Override
     public String Display() {
-        return "Rectangle at " + position.Display() + ", length: " + length;}
+        return "Rectangle at " + position.Display() + ", Side: \n" + side
+                + "Perimeter: \n" + getPerimeter() + " Area: " + getArea();}
 }
