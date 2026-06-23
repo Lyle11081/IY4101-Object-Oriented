@@ -29,6 +29,6 @@ public class Rectangle extends Shape{
 
     @Override
     public String Display() {
-        return "Rectangle at " + position.Display() + ", width: \n" + width + ", length: \n" + length
-              + "Perimeter: \n" + getPerimeter() + " Area: " + getArea()  ;}
+        return "Rectangle at " + position.Display() + "\nwidth: " + width + "\nlength: " + length
+              + "\nPerimeter: " + getPerimeter() + "\nArea: " + getArea()  ;}
 }

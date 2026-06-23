@@ -23,6 +23,6 @@ public class Square extends Shape{
 
     @Override
     public String Display() {
-        return "Rectangle at " + position.Display() + ", Side: \n" + side
-                + "Perimeter: \n" + getPerimeter() + " Area: " + getArea();}
+        return "Square at " + position.Display() + "\nSide: " + side
+                + "\nPerimeter: " + getPerimeter() + "\nArea: " + getArea();}
 }

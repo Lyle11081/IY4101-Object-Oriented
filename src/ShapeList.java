@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class ShapeList{
     private ArrayList<Shape> listOfShapes;
     public ShapeList(ArrayList<Shape> listOfShapes) {
-        listOfShapes = new ArrayList<>();
+        this.listOfShapes = new ArrayList<>();
     }
     public void addShape(Shape s) {
         listOfShapes.add(s);

@@ -4,7 +4,7 @@ public class ShapeManagement {
     public static void main(String[] args) {
         ShapeList shapeList = new ShapeList(new ArrayList<>());
         Scanner input = new Scanner(System.in);
-        //String Menu
+        //Main Menu
         String menu = "\n ***** Shape Management Application ****** \n";
         menu += "Menu\n";
         menu += "1- Add Shape\n";
@@ -60,13 +60,14 @@ public class ShapeManagement {
                 case "6":
                     System.out.println("---- Shapes ----- ");
 
-                case: "0":
-                    System.out.println("Exiting .....");
+                case "0":
+                    System.out.println("Exiting Program.....");
                     break;
                 default:
-                    System.out.println("Invalid choice, Please enter number only.");
+                    System.out.println("=------------------------------=");
+                    System.out.println("Invalid choice, Please try again.");
+                    System.out.println("=------------------------------=");
             }
-
             }
         }
     }

@@ -3,16 +3,20 @@
     private Coordinates vertex1;
     private Coordinates vertex2;
     private Coordinates vertex3;
-    double a = vertex1.distance(vertex2);
-    double b = vertex2.distance(vertex3);
-    double c = vertex3.distance(vertex1);
+    double a;
+    double b;
+    double c;
     //Constructor
     public Triangle(Coordinates vertex1, Coordinates vertex2, Coordinates vertex3) {
         super(3, vertex1);
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.vertex3 = vertex3;
+        a = vertex1.distance(this.vertex3);
+        b = vertex2.distance(this.vertex3);
+        c = vertex3.distance(this.vertex1);
     }
+
     public void translate(int dx, int dy) {
         this.vertex1.translate(dx,dy);
         this.vertex2.translate(dx,dy);
@@ -20,6 +24,9 @@
     }
     @Override
     public void scale(int factor, boolean sign) {
+        vertex1.scale(factor,sign);
+        vertex2.scale(factor,sign);
+        vertex3.scale(factor,sign);
     }
     @Override
     public double getPerimeter() {
@@ -41,6 +48,6 @@
     @Override
     public String Display() {
         return "Triangle at" + position.Display() +
-                "Perimeter: \n" + getPerimeter() + " Area: " + getArea();
+                "\nPerimeter: " + getPerimeter() + "\nArea: " + getArea();
     }
 }
