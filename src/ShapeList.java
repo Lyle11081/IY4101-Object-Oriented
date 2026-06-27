@@ -33,7 +33,7 @@ public class ShapeList{
         StringBuilder displayString = new StringBuilder();
         int id = 1;
         for (Shape each : listOfShapes) {
-            displayString.append("\nID (Required to find a shape) : ").append(id).append("\n");
+            displayString.append("\nShape ID : ").append(id).append("\n");
             displayString.append(each.Display()).append("\n");
             id++;
         }

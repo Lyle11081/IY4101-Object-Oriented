@@ -197,6 +197,7 @@ public class ShapeManagement {
                                 System.out.println("=------------------------=");
                                 System.out.println("Input factor should not be ZER0");
                                 System.out.println("=------------------------=");
+                                break;
                             }
                             System.out.print("Please enter M for scale up or D for scale down: ");
                             char res = input.next().toUpperCase().charAt(0);
@@ -224,9 +225,7 @@ public class ShapeManagement {
                 case "6":
                     System.out.println("---- List of Shapes ----- ");
                     if (shapeList.size() == 0) {
-                        System.out.print("=------------------------=");
                         System.out.println("No shapes available.");
-                        System.out.print("=------------------------=");
                     } else {
                         System.out.println(shapeList.Display());
                     }
