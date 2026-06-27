@@ -16,10 +16,25 @@ public class Square extends Shape{
         }
     }
     @Override
-    public double getPerimeter() {return  side * 4;}
+    public double getPerimeter() {
+        double perimeter = side * 4;
+        if (perimeter == 0) {
+            System.out.print("No perimeter\n");
+            return 0;
+        } else {
+            return perimeter;
+        }
+    }
 
     @Override
-    public double getArea() {return side * side;}
+    public double getArea() {
+        double Area = side * side;
+        if(Area == 0){
+            System.out.print("Not a Square\n");
+            return 0;
+        }else {
+            return Area;}
+        }
 
     @Override
     public String Display() {

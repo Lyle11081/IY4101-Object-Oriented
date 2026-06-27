@@ -1,29 +1,40 @@
-public class Circle extends Shape{
+public class Circle extends Shape {
     //properties
     private double radius;
+
     // Constructor
     public Circle(Coordinates coord, double radius) {
         super(0, coord); // A circle has no sides
         this.radius = radius;
     }
+
     @Override
     public void scale(int factor, boolean sign) {
         if (sign) {
             this.radius *= factor;
-        }
-        else {
+        } else {
             this.radius /= factor;
         }
     }
 
     @Override
     public double getPerimeter() {
-        return 2 * Math.PI * radius;
+        double perimeter = 2 * Math.PI * this.radius;
+        if (perimeter == 0) {
+            System.out.print("Not a Circle\n");
+            return perimeter;
+        } else {
+            return perimeter;
+        }
     }
 
     @Override
     public double getArea() {
-        return Math.PI * radius * radius;
+        double Area = Math.PI * this.radius * this.radius;
+        if (Area == 0) {
+            System.out.print("Not a Circle\n");
+        }
+            return Area;
     }
 
     @Override

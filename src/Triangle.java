@@ -38,7 +38,7 @@
         s = (a + b + c) / 2;
         Area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
         if(Area == 0){
-            System.out.print("Not a Triangle.\n");
+            System.out.print("Not a Triangle\n");
             return 0;
         }
         else {

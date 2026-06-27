@@ -21,7 +21,16 @@ public class Rectangle extends Shape{
     }
     @Override
     public double getPerimeter() {
-        return  (width*2) + (length*2);
+        double perimeter = (width*2) + (length*2);
+        if(perimeter == 0){
+            System.out.print("Not a Rectangle\n");
+            return 0;
+        } else if (width == 0 || length == 0) {
+            System.out.print("Not a Rectangle\n");
+            return  perimeter;
+        }else {
+            return perimeter;
+        }
     }
 
     @Override
