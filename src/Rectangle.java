@@ -4,26 +4,27 @@ public class Rectangle extends Shape{
     private double width;
     //Constructor
     public Rectangle(Coordinates coord,double length, double width){
-        super(4, coord);// Rectangle has 2 sides
+        super(4, coord);// Rectangle has 4 sides
         this.length = length;
         this.width = width;
     }
     @Override
     public void scale(int factor, boolean sign) {
-        if (sign) {
-            this.length *= factor;
-            this.width *= factor;
+        position.scale(factor, sign);
+        if(sign) {
+            width *= factor;
+            length *= factor;
         }
         else {
-            this.length /= factor;
-            this.width /= factor;
+            width /= factor;
+            length /= factor;
         }
     }
     @Override
     public double getPerimeter() {
         double perimeter = (width*2) + (length*2);
         if(perimeter == 0){
-            System.out.print("Not a Rectangle\n");
+            System.out.print("No Perimeter\n");
             return 0;
         } else if (width == 0 || length == 0) {
             System.out.print("Not a Rectangle\n");
@@ -32,10 +33,14 @@ public class Rectangle extends Shape{
             return perimeter;
         }
     }
-
     @Override
-    public double getArea() {return width * length;}
-
+    public double getArea() {
+        double Area = width*length;
+        if(Area == 0){
+            System.out.print("Not a Square\n");
+            return 0;
+        }
+        return Area;}
     @Override
     public String Display() {
         return "Rectangle at " + position.Display() + "\nwidth: " + width + "\nlength: " + length

@@ -22,7 +22,7 @@
         this.vertex2.translate(dx,dy);
         this.vertex3.translate(dx,dy);
     }
-    @Override
+        @Override
     public void scale(int factor, boolean sign) {
         vertex1.scale(factor,sign);
         vertex2.scale(factor,sign);
@@ -47,7 +47,7 @@
     }
     @Override
     public String Display() {
-        return "Triangle at" + position.Display() +
+        return "Triangle at " + position.Display() +
                 "\nPerimeter: " + getPerimeter() + "\nArea: " + getArea();
     }
 }

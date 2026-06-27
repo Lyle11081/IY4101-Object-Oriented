@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import static java.lang.Math.*;
+
 public class ShapeManagement {
     public static void main(String[] args) {
         ShapeList shapeList = new ShapeList(new ArrayList<>());
         Scanner input = new Scanner(System.in);
         //Main Menu
-        String menu = "\n ***** Shape Management Application ****** \n";
-        menu += "Menu\n";
+        String menu = "***** Shape Management Application ***** \n";
+        menu += "------- Main Menu -------\n";
         menu += "1- Add Shape\n";
         menu += "2- Remove Shape by ID\n";
         menu += "3- Display information by ID\n";
@@ -76,11 +78,11 @@ public class ShapeManagement {
                     } else if (type == 'S') {
                         while (true){
                             try {
-                                System.out.println("Please enter X: ");
+                                System.out.print("Please enter X: ");
                                 int x = input.nextInt();
                                 System.out.print("Please enter Y: ");
                                 int y = input.nextInt();
-                                System.out.println("Please enter side value: ");
+                                System.out.print("Please enter side value: ");
                                 double side = input.nextDouble();
                                 shapeList.addShape(new Square(new Coordinates(x, y), side));
                                 System.out.println("A new Square created.");
@@ -95,15 +97,15 @@ public class ShapeManagement {
                     } else if (type == 'R') {
                         while (true){
                             try {
-                                System.out.println("Please enter X: ");
+                                System.out.print("Please enter X: ");
                                 int x = input.nextInt();
                                 System.out.print("Please enter Y: ");
                                 int y = input.nextInt();
-                                System.out.println("Please enter width: ");
+                                System.out.print("Please enter width: ");
                                 double width = input.nextDouble();
-                                System.out.println("Please enter length: ");
+                                System.out.print("Please enter length: ");
                                 double length = input.nextDouble();
-                                shapeList.addShape(new Rectangle(new Coordinates(x, y), width, length));
+                                shapeList.addShape(new Rectangle(new Coordinates(x, y), length, width));
                                 System.out.println("A new Rectangle created.");
                                 break;
                             } catch (InputMismatchException e) {
@@ -114,9 +116,9 @@ public class ShapeManagement {
                             }
                         }
                     } else {
-                        System.out.print("=------------------------=");
-                        System.out.print("\nInvalid input, Try again.\n");
-                        System.out.print("=------------------------=");
+                        System.out.println("=------------------------=");
+                        System.out.println("Invalid input, Try again.");
+                        System.out.println("=------------------------=");
                     }
                     break;
                 case "2":
@@ -125,20 +127,20 @@ public class ShapeManagement {
                         int id = input.nextInt();
                         if (shapeList.isValid(id)) {
                             shapeList.removeShape(id);
-                            System.out.print("=------------------------=");
-                            System.out.print("A shape has been removed.");
-                            System.out.print("=------------------------=");
+                            System.out.println("=------------------------=");
+                            System.out.println("A shape has been removed.");
+                            System.out.println("=------------------------=");
                         }
                         else {
-                            System.out.print("=------------------------=");
-                            System.out.print("Invalid Shape ID, Please Try again.");
-                            System.out.print("=------------------------=");
+                            System.out.println("=------------------------=");
+                            System.out.println("Invalid ID, Please Try again.");
+                            System.out.println("=------------------------=");
                         }
                     }
                     catch (InputMismatchException e){
-                        System.out.print("=------------------------=");
-                        System.out.print("\nInvalid Shape ID, Try again.\n");
-                        System.out.print("=------------------------=");
+                        System.out.println("=------------------------=");
+                        System.out.println("Invalid ID, Try again.");
+                        System.out.println("=------------------------=");
                         input.nextLine(); // to clear the invalid input
                     }
                     break;
@@ -150,14 +152,14 @@ public class ShapeManagement {
                         if (shapeList.isValid(id)) {
                             System.out.println(shapeList.getShape(id).Display());
                         } else {
-                            System.out.print("=------------------------=");
-                            System.out.print("\nInvalid Shape ID, Please Try again.\n");
-                            System.out.print("=------------------------=");
+                            System.out.println("=------------------------=");
+                            System.out.println("Invalid ID, Please Try again.");
+                            System.out.println("=------------------------=");
                         }
                     }catch (InputMismatchException e){
-                        System.out.print("=------------------------=");
-                        System.out.print("\nInvalid Shape ID, Try again.\n");
-                        System.out.print("=------------------------=");
+                        System.out.println("=------------------------=");
+                        System.out.println("Invalid ID, Try again.");
+                        System.out.println("=------------------------=");
                         input.nextLine(); // to clear the invalid input
                     }
                     break;
@@ -166,21 +168,21 @@ public class ShapeManagement {
                         System.out.print("Please enter shape ID to translate:");
                         int id = input.nextInt();
                         if (shapeList.isValid(id)) {
-                            System.out.println("Please enter translation value: ");
+                            System.out.print("Please enter translation value: ");
                             int t = input.nextInt();
                             shapeList.getShape(id).translate(t, t);
-                            System.out.print("=------------------------=");
-                            System.out.print("A shape has been translated.");
-                            System.out.print("=------------------------=");
+                            System.out.println("=------------------------=");
+                            System.out.println("A shape has been translated.");
+                            System.out.println("=------------------------=");
                         } else {
-                            System.out.print("=------------------------=");
-                            System.out.print("Invalid Shape ID, Please Try again.");
-                            System.out.print("=------------------------=");
+                            System.out.println("=------------------------=");
+                            System.out.println("Invalid ID, Please Try again.");
+                            System.out.println("=------------------------=");
                         }
                     }catch (InputMismatchException e){
-                        System.out.print("=------------------------=");
-                        System.out.print("\nInvalid Shape ID, Try again.\n");
-                        System.out.print("=------------------------=");
+                        System.out.println("=------------------------=");
+                        System.out.println("Invalid Shape ID, Try again.");
+                        System.out.println("=------------------------=");
                         input.nextLine(); // to clear the invalid input
                     }
                     break;
@@ -191,6 +193,11 @@ public class ShapeManagement {
                         if (shapeList.isValid(id)) {
                             System.out.print("Enter scaling factor: ");
                             int factor = input.nextInt();
+                            if (factor == 0) {
+                                System.out.println("=------------------------=");
+                                System.out.println("Input factor should not be ZER0");
+                                System.out.println("=------------------------=");
+                            }
                             System.out.print("Please enter M for scale up or D for scale down: ");
                             char res = input.next().toUpperCase().charAt(0);
                             if (res == 'M') {
@@ -198,22 +205,18 @@ public class ShapeManagement {
                                 System.out.println("Shape scaled successfully.");
                             } else if (res == 'D') {
                                 shapeList.getShape(id).scale(factor, false);
-                                System.out.print("=------------------------=");
+                                System.out.println("=------------------------=");
                                 System.out.println("Shape scaled successfully.");
-                                System.out.print("=------------------------=");
+                                System.out.println("=------------------------=");
                             } else {
-                                System.out.print("=------------------------=");
+                                System.out.println("=------------------------=");
                                 System.out.println("Invalid option, Please enter M or D.");
-                                System.out.print("=------------------------=");
+                                System.out.println("=------------------------=");
                             }
-                        } else {
-                            System.out.print("=------------------------=");
-                            System.out.println("Invalid Shape ID, Please Try again.");
-                            System.out.print("=------------------------=");
                         }
                     }catch (InputMismatchException e){
                         System.out.print("=------------------------=");
-                        System.out.print("\nInvalid Shape ID, Try again.\n");
+                        System.out.print("\nInvalid ID, Try again.\n");
                         System.out.print("=------------------------=");
                         input.nextLine(); // to clear the invalid input
                     }
@@ -232,9 +235,9 @@ public class ShapeManagement {
                     System.out.print("Exiting Program.....");
                     return;
                 default:
-                    System.out.print("=------------------------------=");
-                    System.out.print("\nInvalid choice, Please try again.\n");
-                    System.out.print("=------------------------------=");
+                    System.out.println("=------------------------------=");
+                    System.out.println("Invalid choice, Please try again.");
+                    System.out.println("=------------------------------=");
                     }
             }
         }

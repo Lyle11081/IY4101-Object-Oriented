@@ -3,11 +3,12 @@ public class Square extends Shape{
     private double side;
     //Constructor
     public Square(Coordinates coord, double side){
-        super(4, coord);// Square has 2 sides with same length
+        super(4, coord);// Square has 4 sides with same length
         this.side = side;
     }
     @Override
     public void scale(int factor, boolean sign) {
+        position.scale(factor, sign);
         if (sign) {
             this.side *= factor;
         }
@@ -25,7 +26,6 @@ public class Square extends Shape{
             return perimeter;
         }
     }
-
     @Override
     public double getArea() {
         double Area = side * side;
@@ -35,7 +35,6 @@ public class Square extends Shape{
         }else {
             return Area;}
         }
-
     @Override
     public String Display() {
         return "Square at " + position.Display() + "\nSide: " + side
