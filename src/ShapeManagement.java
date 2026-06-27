@@ -12,19 +12,19 @@ public class ShapeManagement {
         menu += "3- Display information by ID\n";
         menu += "4- Translate shape\n";
         menu += "5- Scaling shape\n";
-        menu += "6- display all shapes\n";
+        menu += "6- Display all shapes\n";
         menu += "0- Exit\n";
         menu += "Enter your Choice (1 - 6) or 0 to Exit: ";
         //Repeat printing menu and get the user option
-        boolean Isdone = true;
-        while(true){
+        while (true) {
             System.out.print(menu);
             String choice = input.next();//get the user choice
-            switch(choice){
+            switch (choice) {
                 case "1":
-                    System.out.print("Enter shape type to add: \nC for Circle \nT for Triangle \nS for Square \nR for Rectangle\n: ");
+                    System.out.println("Choice of shapes: \nC for Circle \nT for Triangle \nS for Square \nR for Rectangle");
+                    System.out.print("Please enter shape you want to add: ");
                     char type = input.next().toUpperCase().charAt(0);
-                    if(type == 'C'){
+                    if (type == 'C') {
                         System.out.print("Please enter X: ");
                         int x = input.nextInt();
                         System.out.print("Please enter Y: ");
@@ -33,18 +33,26 @@ public class ShapeManagement {
                         double radius = input.nextDouble();
                         shapeList.addShape(new Circle(new Coordinates(x, y), radius));
                         System.out.println("A new Circle created.");
-                    }
-                    else if(type == 'T'){
-                        System.out.print("Please enter 1st vertex(x1,y1): ");
-                        Coordinates vertex1 = new Coordinates(input.nextInt(), input.nextInt());
-                        System.out.print("Please enter 2nd vertex(x2,y2): ");
-                        Coordinates vertex2 = new Coordinates(input.nextInt(), input.nextInt());
-                        System.out.print("Please enter 3rd vertex(x3,y3): ");
-                        Coordinates vertex3 = new Coordinates(input.nextInt(), input.nextInt());
+                    } else if (type == 'T') {
+                        int x1, x2, x3, y1, y2, y3;
+                        System.out.print("Please enter x1: ");
+                        x1 = input.nextInt();
+                        System.out.print("Please enter y1: ");
+                        y1 = input.nextInt();
+                        Coordinates vertex1 = new Coordinates(x1, y1);
+                        System.out.print("Please enter x2: ");
+                        x2 = input.nextInt();
+                        System.out.print("Please enter y2: ");
+                        y2 = input.nextInt();
+                        Coordinates vertex2 = new Coordinates(x2, y2);
+                        System.out.print("Please enter x3: ");
+                        x3 = input.nextInt();
+                        System.out.print("Please enter y3: ");
+                        y3 = input.nextInt();
+                        Coordinates vertex3 = new Coordinates(x3, y3);
                         shapeList.addShape(new Triangle(vertex1, vertex2, vertex3));
                         System.out.println("A new Triangle created.");
-                    }
-                    else if(type == 'S'){
+                    } else if (type == 'S') {
                         System.out.println("Please enter X: ");
                         int x = input.nextInt();
                         System.out.print("Please enter Y: ");
@@ -53,8 +61,7 @@ public class ShapeManagement {
                         double side = input.nextDouble();
                         shapeList.addShape(new Square(new Coordinates(x, y), side));
                         System.out.println("A new Square created.");
-                    }
-                    else if(type == 'R'){
+                    } else if (type == 'R') {
                         System.out.println("Please enter X: ");
                         int x = input.nextInt();
                         System.out.print("Please enter Y: ");
@@ -66,53 +73,79 @@ public class ShapeManagement {
                         shapeList.addShape(new Rectangle(new Coordinates(x, y), width, length));
                         System.out.println("A new Rectangle created.");
 
+                    } else {
+                        System.out.print("Invalid input, Try again.");
                     }
-                    else{
-                        System.out.println("Invalid input, Try again.");
-                    }
-                    Isdone = false;
+                    break;
                 case "2":
                     System.out.print("Enter shape ID you want to remove: ");
                     int id = input.nextInt();
-                    if (shapeList.isValid(id)){
+                    if (shapeList.isValid(id)) {
                         shapeList.removeShape(id);
                         System.out.print("A shape has been removed.");
-                    }
-                    else{
+                    } else {
                         System.out.print("Invalid Shape ID, Please Try again.");
                     }
-                    Isdone = false;
+                    break;
                 case "3":
                     System.out.print("Please enter the Shape ID to show the Information: ");
                     id = input.nextInt();
                     System.out.print("-----Shape information by ID----");
-                    if(shapeList.isValid(id)){
+                    if (shapeList.isValid(id)) {
                         System.out.println(shapeList.getShape(id).Display());
-                    }
-                    else{
+                    } else {
                         System.out.print("Invalid Shape ID, Please Try again.");
                     }
-                    Isdone = false;
+                    break;
                 case "4":
-                    System.out.print("Please enter translate value:");
-                    int trans  = input.nextInt();
-                    Isdone = false;
+                    System.out.print("Please enter shape ID to translate:");
+                    id = input.nextInt();
+                    if (shapeList.isValid(id)) {
+                        System.out.println("Please enter translation value: ");
+                        int t = input.nextInt();
+                        shapeList.getShape(id).translate(t, t);
+                        System.out.print("A shape has been translated.");
+                    } else {
+                        System.out.print("Invalid shape ID, Please Try again.");
+                    }
+                    break;
                 case "5":
-                    System.out.print("Please enter scaling value:");
-                    int scale = input.nextInt();
-                    Isdone = false;
+                    System.out.print("Enter Shape ID to rescale: ");
+                    id = input.nextInt();
+                    if (shapeList.isValid(id)) {
+                        System.out.print("Enter scaling factor: ");
+                        int factor = input.nextInt();
+                        System.out.print("Please enter M for scale up or D for scale down: ");
+                        char res = input.next().toUpperCase().charAt(0);
+                        if (res == 'M') {
+                            shapeList.getShape(id).scale(factor, true);
+                            System.out.println("Shape scaled successfully.");
+                        } else if (res == 'D') {
+                            shapeList.getShape(id).scale(factor, false);
+                            System.out.println("Shape scaled successfully.");
+                        } else {
+                            System.out.println("Invalid option, Please enter M or D.");
+                        }
+                    } else {
+                        System.out.println("Invalid Shape ID, Please Try again.");
+                    }
+                    break;
                 case "6":
-                    System.out.print("---- List of Shapes ----- ");
-
-                    Isdone = false;
+                    System.out.println("---- List of Shapes ----- ");
+                    if (shapeList.size() == 0) {
+                        System.out.println("No shapes available.");
+                    } else {
+                        System.out.println(shapeList.Display());
+                    }
+                    break;
                 case "0":
                     System.out.print("Exiting Program.....");
                     return;
                 default:
+                    System.out.println("=------------------------------=");
+                    System.out.println("Invalid choice, Please try again.");
                     System.out.print("=------------------------------=");
-                    System.out.print("Invalid choice, Please try again.");
-                    System.out.print("=------------------------------=");
-            }
+                    }
             }
         }
     }

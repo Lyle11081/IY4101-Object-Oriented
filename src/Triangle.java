@@ -12,7 +12,7 @@
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.vertex3 = vertex3;
-        a = vertex1.distance(this.vertex3);
+        a = vertex1.distance(this.vertex2);
         b = vertex2.distance(this.vertex3);
         c = vertex3.distance(this.vertex1);
     }
