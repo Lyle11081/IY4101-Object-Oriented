@@ -18,16 +18,10 @@ public class ShapeList{
     public Shape removeShape(int id) {
         return listOfShapes.remove(id - 1);
     }
-    public double area(int id) {
-        return listOfShapes.get(id - 1).getArea();
-    }
     public void scale(int factor, boolean sign) {
         for (Shape each : listOfShapes) {
             each.scale(factor, sign);
         }
-    }
-    public double perimeter(int id) {
-        return listOfShapes.get(id - 1).getPerimeter();
     }
     public String Display() {
         StringBuilder displayString = new StringBuilder();

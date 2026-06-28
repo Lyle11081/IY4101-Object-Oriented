@@ -30,11 +30,20 @@
     }
     @Override
     public double getPerimeter() {
+        //--- Update sides after translated or rescaled ---
+        a = vertex1.distance(vertex2);
+        b = vertex2.distance(vertex3);
+        c = vertex3.distance(vertex1);
         return a + b + c;
     }
     @Override
     public double getArea(){
         double s, Area;
+        //--- Update sides after translated or rescaled ---
+        a = vertex1.distance(vertex2);
+        b = vertex2.distance(vertex3);
+        c = vertex3.distance(vertex1);
+        //Calculate Area
         s = (a + b + c) / 2;
         Area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
         if(Area == 0){
