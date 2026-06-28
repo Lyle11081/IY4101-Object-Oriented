@@ -56,7 +56,10 @@
     }
     @Override
     public String Display() {
-        return "Triangle at " + position.Display() +
-                "\nPerimeter: " + getPerimeter() + "\nArea: " + getArea();
+        return "Triangle at \n" + "Vertex 1: " + vertex1.Display() + "\n" +
+                "Vertex 2: " + vertex2.Display() + "\n" +
+                "Vertex 3: " + vertex3.Display() + "\n" +
+                "Perimeter: " + getPerimeter() + "\n" +
+                "Area: " + getArea();
     }
 }

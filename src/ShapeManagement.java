@@ -28,8 +28,8 @@ public class ShapeManagement {
                     System.out.print("Please enter shape you want to add: ");
                     char type = input.next().toUpperCase().charAt(0);
                     if (type == 'C') {
-                        while(true){
-                            try {
+                        while(true){ //keep input until all variables are valid
+                            try { // prevent program crashes when enter invalid values such as alphabet
                                 System.out.print("Please enter X: ");
                                 int x = input.nextInt();
                                 System.out.print("Please enter Y: ");
@@ -37,13 +37,15 @@ public class ShapeManagement {
                                 System.out.print("Please enter radius: ");
                                 double radius = input.nextDouble();
                                 shapeList.addShape(new Circle(new Coordinates(x, y), radius));
-                                System.out.print("A new Circle created.");
+                                System.out.println("=--------------------=");
+                                System.out.println("A new Circle created.");
+                                System.out.println("=--------------------=");
                                 break;
-                            } catch (InputMismatchException e) {
+                            } catch (InputMismatchException e) { // display error message
                                 System.out.println("=-------------------------=");
                                 System.out.println("Please enter numbers only.");
                                 System.out.println("=-------------------------=");
-                                input.nextLine();
+                                input.nextLine(); //Clear invalid input
                             }
                         }
                     } else if (type == 'T') {
@@ -66,7 +68,9 @@ public class ShapeManagement {
                                 y3 = input.nextInt();
                                 Coordinates vertex3 = new Coordinates(x3, y3);
                                 shapeList.addShape(new Triangle(vertex1, vertex2, vertex3));
+                                System.out.println("=----------------------=");
                                 System.out.println("A new Triangle created.");
+                                System.out.println("=----------------------=");
                                 break;
                             } catch (InputMismatchException e) {
                                 System.out.println("=-------------------------=");
@@ -85,7 +89,9 @@ public class ShapeManagement {
                                 System.out.print("Please enter side value: ");
                                 double side = input.nextDouble();
                                 shapeList.addShape(new Square(new Coordinates(x, y), side));
+                                System.out.println("=---------------------=");
                                 System.out.println("A new Square created.");
+                                System.out.println("=---------------------=");
                                 break;
                             } catch (InputMismatchException e) {
                                 System.out.println("=-------------------------=");
@@ -106,7 +112,9 @@ public class ShapeManagement {
                                 System.out.print("Please enter length: ");
                                 double length = input.nextDouble();
                                 shapeList.addShape(new Rectangle(new Coordinates(x, y), length, width));
+                                System.out.println("=-----------------------=");
                                 System.out.println("A new Rectangle created.");
+                                System.out.println("=-----------------------=");
                                 break;
                             } catch (InputMismatchException e) {
                                 System.out.println("=-------------------------=");
@@ -131,7 +139,7 @@ public class ShapeManagement {
                             System.out.println("A shape has been removed.");
                             System.out.println("=------------------------=");
                         }
-                        else {
+                        else { // display when there is no selected ID
                             System.out.println("=------------------------=");
                             System.out.println("Invalid ID, Please Try again.");
                             System.out.println("=------------------------=");
@@ -141,7 +149,7 @@ public class ShapeManagement {
                         System.out.println("=------------------------=");
                         System.out.println("Invalid ID, Try again.");
                         System.out.println("=------------------------=");
-                        input.nextLine(); // to clear the invalid input
+                        input.nextLine();
                     }
                     break;
                 case "3":
@@ -177,14 +185,14 @@ public class ShapeManagement {
                         System.out.println("=------------------------=");
                         System.out.println("Invalid input, Please enter number only.");
                         System.out.println("=------------------------=");
-                        input.nextLine(); // to clear the invalid input
+                        input.nextLine();
                     }
                     break;
                 case "5":
                     try{
                             System.out.print("Please Enter scaling factor: ");
                             int factor = input.nextInt();
-                            if (factor == 0) {
+                            if (factor == 0) { //prevent program crashes when 0 is entered
                                 System.out.println("=------------------------=");
                                 System.out.println("Input factor should not be ZER0");
                                 System.out.println("=------------------------=");
@@ -210,8 +218,10 @@ public class ShapeManagement {
                     break;
                 case "6":
                     System.out.println("---- List of Shapes ----- ");
-                    if (shapeList.size() == 0) {
+                    if (shapeList.size() == 0) { //display when there are no any shapes available
+                        System.out.println("=--------------------=");
                         System.out.println("No shapes available.");
+                        System.out.println("=--------------------=");
                     } else {
                         System.out.println(shapeList.Display());
                     }
