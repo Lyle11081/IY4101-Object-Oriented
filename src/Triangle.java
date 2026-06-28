@@ -3,9 +3,7 @@
     private Coordinates vertex1;
     private Coordinates vertex2;
     private Coordinates vertex3;
-    double a;
-    double b;
-    double c;
+    double a,b,c;
     //Constructor
     public Triangle(Coordinates vertex1, Coordinates vertex2, Coordinates vertex3) {
         super(3, vertex1);
@@ -16,7 +14,6 @@
         b = vertex2.distance(this.vertex3);
         c = vertex3.distance(this.vertex1);
     }
-
     public void translate(int dx, int dy) {
         this.vertex1.translate(dx,dy);
         this.vertex2.translate(dx,dy);

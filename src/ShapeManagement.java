@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import static java.lang.Math.*;
-
 public class ShapeManagement {
     public static void main(String[] args) {
         ShapeList shapeList = new ShapeList(new ArrayList<>());
