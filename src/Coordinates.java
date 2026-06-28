@@ -13,24 +13,25 @@ public class Coordinates {
     public void setY(int y) {this.y = y;}
     //Calculate Distance Between points
     public double distance(Coordinates p) {
-        return Math.sqrt(Math.pow(this.x-p.x, 2)+Math.pow(this.y-p.y, 2));
+        return Math.sqrt(Math.pow(getX() - p.getX(), 2) + Math.pow(getY() - p.getY(), 2));
     }
     public void translate(int dx, int dy) {
-        this.x += dx;
-        this.y += dy;
+        setX(getX() + dx);
+        setY(getY() + dy);
     }
     // Make it Bigger or smaller
     public void scale(int factor, boolean sign){
-        if (sign){
-            this.x *= factor;
-            this.y *= factor;
-        } else{
-            this.x /= factor;
-            this.y /= factor;
+        if (sign) {
+            setX(getX() * factor);
+            setY(getY() * factor);
+        }
+        else {
+            setX(getX() / factor);
+            setY(getY() / factor);
         }
     }
     // Display Coordinate
     public String Display() {
-        return String.format("(%d,%d)", x, y);
+        return String.format("(%d,%d)", getX(), getY());
     }
 }
